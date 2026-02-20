@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: skillforge-ollama-config
+data:
+  OLLAMA_BASE_URL: "http://ollama.default.svc.cluster.local:11434/v1"
+  OLLAMA_MODEL: "llama3.1:8b"
+  JOB_SEARCH_QUERY_SUFFIX: "gen ai python remote"
