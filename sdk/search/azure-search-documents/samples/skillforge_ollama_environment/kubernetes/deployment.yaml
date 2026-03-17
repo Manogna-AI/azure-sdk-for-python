@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skillforge-ollama
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: skillforge-ollama
+  template:
+    metadata:
+      labels:
+        app: skillforge-ollama
+    spec:
+      containers:
+        - name: skillforge-ollama
+          image: your-registry/skillforge-ollama:latest
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: skillforge-ollama-config
+            - secretRef:
+                name: skillforge-ollama-secret
